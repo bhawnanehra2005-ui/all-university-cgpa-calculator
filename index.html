@@ -3,52 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CGPA to Percentage Calculator - All Indian Universities</title>
-<meta name="description" content="Free CGPA to Percentage Calculator for VTU, GTU, Mumbai University, AKTU, MDU, CBSE. Convert 10 point CGPA to %.">
+<title>CGPA to Percentage Calculator - Easy & Fast</title>
+<meta name="description" content="Simple CGPA to Percentage calculator for School, College, Engineering. 100% Free.">
 <style>
-body { font-family: 'Segoe UI', Arial; background-color: #0f172a; color: #fff; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
-.banner { width: 100%; max-width: 700px; height: 90px; background-color: #1e293b; border: 1px dashed #475569; display: flex; justify-content: center; align-items: center; border-radius: 10px; margin-bottom: 20px; color: #94a3b8; }
-.card { width: 100%; max-width: 500px; background: #1e293b; border-radius: 15px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-h1 { color: #38bdf8; text-align: center; margin: 0; font-size: 26px; }
-p.sub { text-align: center; color: #94a3b8; margin-top: 5px; }
-label { display: block; margin-top: 15px; margin-bottom: 5px; color: #cbd5e1; }
-select, input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: white; box-sizing: border-box; }
-button { width: 100%; margin-top: 20px; padding: 13px; background: #38bdf8; color: #0f172a; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 16px; }
-.result { margin-top: 20px; padding: 15px; background: #0f172a; border-radius: 8px; text-align: center; display: none; border: 1px solid #38bdf8; }
-.result b { color: #38bdf8; font-size: 24px; }
-.footer-links { margin-top:20px; text-align:center; font-size:13px; }
-.footer-links a { color:#94a3b8; margin:0 10px; text-decoration:none; }
+:root{ --blue:#2563eb; --bg:#f8fafc; }
+body{font-family:'Segoe UI',system-ui,sans-serif; background:var(--bg); margin:0; padding:15px; display:flex; flex-direction:column; align-items:center; min-height:100vh;}
+.card{background:white; width:100%; max-width:440px; padding:28px; border-radius:20px; box-shadow:0 8px 30px rgba(0,0,0,0.06); border:1px solid #e2e8f0; text-align:center;}
+h1{margin:0; font-size:24px; color:#0f172a;}
+.sub{color:#64748b; font-size:14px; margin:6px 0 22px;}
+label{text-align:left; display:block; font-weight:600; margin:14px 0 6px; font-size:14px; color:#334155;}
+select,input{width:100%; padding:13px; border-radius:12px; border:1.5px solid #e2e8f0; font-size:15px; box-sizing:border-box; outline:none; background:#f8fafc;}
+select:focus,input:focus{border-color:var(--blue); background:white;}
+.btn{width:100%; margin-top:20px; background:linear-gradient(90deg,#2563eb,#3b82f6); color:white; border:none; padding:14px; border-radius:12px; font-size:16px; font-weight:700; cursor:pointer; box-shadow:0 4px 15px rgba(37,99,235,0.3);}
+.result{margin-top:22px; background:#eff6ff; border:1px solid #bfdbfe; border-radius:12px; padding:18px; display:none;}
+.result h2{margin:0; color:#1e40af; font-size:32px;}
+.small{font-size:12.5px; color:#64748b; margin-top:8px; line-height:1.5;}
+.badge{display:inline-block; background:#dbeafe; color:#1e40af; padding:5px 12px; border-radius:20px; font-size:12px; font-weight:600; margin-bottom:8px;}
+.footer{margin-top:25px; padding-top:15px; border-top:1px solid #f1f5f9; display:flex; justify-content:center; gap:15px; flex-wrap:wrap;}
+.footer a{color:#64748b; font-size:12px; text-decoration:none; font-weight:500;}
+.footer a:hover{color:var(--blue);}
+.ad-box{width:100%; max-width:440px; height:90px; background:white; border:1px dashed #cbd5e1; border-radius:12px; display:flex; justify-content:center; align-items:center; color:#94a3b8; font-size:12px; margin-bottom:20px;}
 </style>
 </head>
 <body>
-<div class="banner">AdSense Ad - Top Banner 728x90</div>
+<div class="ad-box">Ad Space - Top Banner</div>
 <div class="card">
-<h1>CGPA to Percentage</h1>
-<p class="sub">New Version - All University (2026)</p>
-<label>Select Your University Formula:</label>
-<select id="uni">
-<option value="9.5">CBSE / AKTU / MDU / General (CGPA x 9.5)</option>
-<option value="8.0">VTU Formula (CGPA - 0.5) x 10</option>
-<option value="7.1">GTU / Mumbai (CGPA - 0.5) x 10</option>
+<h1>🎓 CGPA Calculator</h1>
+<p class="sub">Sabhi ke liye easy calculator</p>
+
+<label>Apna Course Chuno</label>
+<select id="university">
+<option value="school">School - 10th Class (CBSE / ICSE)</option>
+<option value="college">College - BA, BSc, BCom (DU, MDU, AKTU)</option>
+<option value="btech">B.Tech / Engineering (VTU, GTU, AICTE)</option>
+<option value="mumbai">Mumbai University</option>
+<option value="other">Other - Sabhi ke liye (Simple)</option>
 </select>
-<label>Enter Your CGPA (out of 10):</label>
-<input type="number" id="cgpa" placeholder="e.g. 8.25" step="0.01">
-<button onclick="calc()">Calculate Percentage</button>
-<div id="res" class="result"></div>
-<div class="footer-links">
-<a href="about.html">About Us</a> | <a href="privacy.html">Privacy Policy</a> | <a href="contact.html">Contact</a>
+
+<label>Apna CGPA Likho (0 se 10 tak)</label>
+<input type="number" id="cgpa" step="0.01" max="10" placeholder="Jaise - 8.5">
+
+<button class="btn" onclick="calculate()">Percentage Dekho</button>
+
+<div class="result" id="resultBox">
+<div class="badge" id="uniBadge"></div>
+<h2 id="percent">-- %</h2>
+<p class="small" id="formulaText"></p>
+<p class="small" id="tipText" style="color:#15803d; font-weight:600;"></p>
+</div>
+
+<p class="small" style="margin-top:18px;">Example: Agar 8 CGPA hai to CBSE me 76% hota hai. Har course ka formula alag hai.</p>
+
+<div class="footer">
+<a href="#about">About Us</a>
+<a href="#privacy">Privacy Policy</a>
+<a href="#contact">Contact Us</a>
+</div>
+
+<div style="text-align:left; margin-top:20px;" class="small">
+<p id="about"><b>About Us:</b> Ye free tool students ke liye banaya hai taaki wo aasani se apna CGPA to Percentage nikal sake.</p>
+<p id="privacy"><b>Privacy Policy:</b> Hum aapka koi data save nahi karte. Aap jo CGPA dalte ho wo sirf aapke browser me calculate hota hai.</p>
+<p id="contact"><b>Contact Us:</b> Koi bhi sawal ho to email kare: help@cgpacalc.com</p>
 </div>
 </div>
+
 <script>
-function calc(){
-let c=parseFloat(document.getElementById('cgpa').value);
-let type=document.getElementById('uni').value;
-if(!c){alert('Please Enter CGPA');return;}
-let p=0;
-if(type==9.5){ p=c*9.5; } else { p=(c-0.5)*10; }
-if(p>100) p=100;
-document.getElementById('res').style.display='block';
-document.getElementById('res').innerHTML=`Your Percentage is<br><b>${p.toFixed(2)}%</b><br><small>Calculated Successfully</small>`;
+function calculate(){
+let uni=document.getElementById('university').value;
+let cgpa=parseFloat(document.getElementById('cgpa').value);
+if(isNaN(cgpa) || cgpa<0 || cgpa>10){ alert('Please Sahi CGPA likho 0 se 10 ke beech me'); return; }
+let percent=0, formula='', badge='', tip='';
+if(uni==='school'){ percent=cgpa*9.5; formula='Formula: CGPA × 9.5'; badge='School (CBSE)'; tip='10th Class ke liye sahi hai'; }
+else if(uni==='college'){ percent=cgpa*9.5; formula='Formula: CGPA × 9.5'; badge='College'; tip='DU / MDU / AKTU ke liye'; }
+else if(uni==='btech'){ percent=(cgpa-0.5)*10; formula='Formula: (CGPA - 0.5) × 10'; badge='Engineering'; tip='B.Tech ke liye AICTE Rule'; }
+else if(uni==='mumbai'){ percent=(cgpa*7.1)+11; formula='Formula: (CGPA × 7.1) + 11'; badge='Mumbai University'; }
+else{ percent=cgpa*10; formula='Formula: CGPA × 10'; badge='General'; }
+document.getElementById('percent').innerText=percent.toFixed(2)+'%';
+document.getElementById('formulaText').innerText=formula;
+document.getElementById('uniBadge').innerText=badge;
+document.getElementById('tipText').innerText=tip;
+document.getElementById('resultBox').style.display='block';
 }
 </script>
 </body>
